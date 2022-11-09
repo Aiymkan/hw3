@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function TodoList(props) {
+function Task(props) {
     const [todos, setTodos] = useState([
         {
             id: 1,
@@ -12,7 +12,7 @@ function TodoList(props) {
         },
         {
             id: 3,
-            text: "Read a book",
+            text: "Practice",
         }
     ]);
     const [value, setValue] = useState("")
@@ -20,7 +20,7 @@ function TodoList(props) {
         setValue(e.target.value)
     };
     const onAdd =(e)=> {
-        if(!e.target.value.trim())return;
+        if(!value.trim())return;
         const todo = {
             text: value,
             id: Date.now(),
@@ -34,6 +34,7 @@ function TodoList(props) {
         const todoFilter=todos.filter(todo=>todo.id !== id)
         setTodos(todoFilter)
     };
+    const [checked, setChecked ] = useState(false)
 
     return (
         <div className='container mt-3'>
@@ -42,14 +43,23 @@ function TodoList(props) {
                     <button onClick={onAdd} className="btn btn-outline-secondary" type="button" id="button-addon2">Add</button>
             </div>
             <ul className="list-group">
+
                 {
                     todos.map(todo=>{
+
                         return ( <li
+
                             key={todo.id}
                             className="list-group-item mb-2 d-flex justify-content-between align-items-center" >
+                            <input
+                                   checked={checked.id}
+                                   type="checkbox"
+                                   onChange={(e)=>{setChecked(e.target.checked)}}
+                            />
                             <span>{todo.text}</span>
-                            <button onClick={()=>deleteTodo(todo.id)} className= "btn btn-light">delete</button>
+                            <button onClick={()=>deleteTodo(todo.id)} className= "btn btn-secondary">delete</button>
                         </li>)
+                        
                     })
                 }
             </ul>
@@ -57,4 +67,4 @@ function TodoList(props) {
     );
 }
 
-export default TodoList;
+export default Task;

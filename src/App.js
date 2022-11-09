@@ -1,13 +1,13 @@
-import logo from './logo.svg';
+
 import './App.css';
-import TodoHeader from "./components/TodoHeader";
-import TodoList from "./components/TodoList";
+import AddTaskForm from "./components/AddTaskForm";
+import Task from "./components/Task";
 
 function App() {
   return (
     <div className="App">
-      <TodoHeader/>
-      <TodoList/>
+      <AddTaskForm/>
+      <Task/>
     </div>
   );
 }

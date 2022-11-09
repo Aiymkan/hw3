@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TodoHeader(props) {
+function AddTaskForm(props) {
     return (
 
         <nav className="navbar navbar-dark bg-dark">
@@ -13,4 +13,4 @@ function TodoHeader(props) {
     );
 }
 
-export default TodoHeader;
+export default AddTaskForm;
